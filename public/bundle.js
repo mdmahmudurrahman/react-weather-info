@@ -27164,12 +27164,24 @@
 	var Weather = React.createClass({
 	  displayName: "Weather",
 
+	  getInitialState: function getInitialState() {
+	    return {
+	      location: "Dhaka",
+	      temperature: 100
+	    };
+	  },
+	  handleSearch: function handleSearch(cityName) {
+	    this.setState({
+	      location: cityName,
+	      temperature: 78
+	    });
+	  },
 	  render: function functionName() {
 	    return React.createElement(
 	      "div",
 	      null,
-	      React.createElement(WeatherForm, null),
-	      React.createElement(WeatherMessage, null)
+	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
+	      React.createElement(WeatherMessage, { tmpr: this.state.temperature, locton: this.state.location })
 	    );
 	  }
 	});
@@ -27190,6 +27202,11 @@
 
 	  onFormSubmit: function onFormSubmit(e) {
 	    e.preventDefault();
+	    var cityName = this.refs.cityNameTextBox.value;
+	    if (cityName.length > 0) {
+	      this.refs.cityNameTextBox.value = "";
+	      this.props.onSearch(cityName);
+	    }
 	  },
 	  render: function render() {
 	    return React.createElement(
@@ -27198,7 +27215,7 @@
 	      React.createElement(
 	        "form",
 	        { onSubmit: this.onFormSubmit },
-	        React.createElement("input", { type: "text", placeholder: "Enter the city name" }),
+	        React.createElement("input", { type: "text", ref: "cityNameTextBox", placeholder: "Enter the city name" }),
 	        React.createElement("br", null),
 	        React.createElement(
 	          "button",
@@ -27230,7 +27247,14 @@
 	      React.createElement(
 	        "h3",
 	        null,
-	        "40 * centigrade"
+	        "Location: ",
+	        this.props.locton
+	      ),
+	      React.createElement(
+	        "h3",
+	        null,
+	        "Temperature: ",
+	        this.props.tmpr
 	      )
 	    );
 	  }

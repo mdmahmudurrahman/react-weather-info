@@ -7,3 +7,13 @@
   }
 04. add three new component and their routing
    a. add weather component
+
+......
+.
+.
+.
+.
+.
+10. To get weather info, we have to pass city name from the child
+to parent, and the method in the parent will get the date, than it
+will send back the data to child.
