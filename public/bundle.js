@@ -57,11 +57,16 @@
 	var hashHistory = _require.hashHistory;
 
 	var MainComponent = __webpack_require__(235);
+	var Weather = __webpack_require__(237);
 
 	ReactDOM.render(React.createElement(
-	     Router,
-	     { history: hashHistory },
-	     React.createElement(Route, { path: "/", component: MainComponent })
+	  Router,
+	  { history: hashHistory },
+	  React.createElement(
+	    Route,
+	    { path: "/", component: MainComponent },
+	    React.createElement(IndexRoute, { component: Weather })
+	  )
 	), document.getElementById("app"));
 
 /***/ },
@@ -27082,12 +27087,13 @@
 	    return React.createElement(
 	      "div",
 	      null,
+	      React.createElement(Navigation, null),
 	      React.createElement(
 	        "h3",
 	        null,
 	        "Main component"
 	      ),
-	      React.createElement(Navigation, null)
+	      this.props.children
 	    );
 	  }
 	});
@@ -27112,28 +27118,35 @@
 	      React.createElement(
 	        "h4",
 	        null,
-	        "React Weather"
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "Get Weather"
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "About"
-	      ),
-	      React.createElement(
-	        "h4",
-	        null,
-	        "Examples"
+	        "Navigation"
 	      )
 	    );
 	  }
 	});
 
 	module.exports = Navigation;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Weather = React.createClass({
+	  displayName: "Weather",
+
+	  render: function functionName() {
+	    return React.createElement(
+	      "h3",
+	      null,
+	      "Weather component"
+	    );
+	  }
+	});
+
+	module.exports = Weather;
 
 /***/ }
 /******/ ]);

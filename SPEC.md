@@ -5,4 +5,5 @@
     Main: "app/components/Main.jsx",
     Navigation: "app/components/Nav.jsx"
   }
-04.   
+04. add three new component and their routing
+   a. add weather component
