@@ -58,8 +58,8 @@
 
 	var MainComponent = __webpack_require__(235);
 	var Weather = __webpack_require__(237);
-	var About = __webpack_require__(238);
-	var Examples = __webpack_require__(239);
+	var About = __webpack_require__(240);
+	var Examples = __webpack_require__(241);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -27158,15 +27158,18 @@
 	"use strict";
 
 	var React = __webpack_require__(1);
+	var WeatherForm = __webpack_require__(238);
+	var WeatherMessage = __webpack_require__(239);
 
 	var Weather = React.createClass({
 	  displayName: "Weather",
 
 	  render: function functionName() {
 	    return React.createElement(
-	      "h3",
+	      "div",
 	      null,
-	      "Weather component"
+	      React.createElement(WeatherForm, null),
+	      React.createElement(WeatherMessage, null)
 	    );
 	  }
 	});
@@ -27175,6 +27178,68 @@
 
 /***/ },
 /* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var WeatherForm = React.createClass({
+	  displayName: "WeatherForm",
+
+
+	  onFormSubmit: function onFormSubmit(e) {
+	    e.preventDefault();
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "form",
+	        { onSubmit: this.onFormSubmit },
+	        React.createElement("input", { type: "text", placeholder: "Enter the city name" }),
+	        React.createElement("br", null),
+	        React.createElement(
+	          "button",
+	          null,
+	          "Get the information"
+	        )
+	      )
+	    );
+	  }
+	});
+
+	module.exports = WeatherForm;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var WeatherMessage = React.createClass({
+	  displayName: "WeatherMessage",
+
+	  render: function render() {
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "h3",
+	        null,
+	        "40 * centigrade"
+	      )
+	    );
+	  }
+	});
+
+	module.exports = WeatherMessage;
+
+/***/ },
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27196,7 +27261,7 @@
 	module.exports = About;
 
 /***/ },
-/* 239 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
