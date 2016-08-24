@@ -58,6 +58,8 @@
 
 	var MainComponent = __webpack_require__(235);
 	var Weather = __webpack_require__(237);
+	var About = __webpack_require__(238);
+	var Examples = __webpack_require__(239);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -65,6 +67,8 @@
 	  React.createElement(
 	    Route,
 	    { path: "/", component: MainComponent },
+	    React.createElement(Route, { path: "about", component: About }),
+	    React.createElement(Route, { path: "examples", component: Examples }),
 	    React.createElement(IndexRoute, { component: Weather })
 	  )
 	), document.getElementById("app"));
@@ -27108,6 +27112,11 @@
 
 	var React = __webpack_require__(1);
 
+	var _require = __webpack_require__(172);
+
+	var Link = _require.Link;
+
+
 	var Navigation = React.createClass({
 	  displayName: "Navigation",
 
@@ -27119,6 +27128,21 @@
 	        "h4",
 	        null,
 	        "Navigation"
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: "/" },
+	        "Get Weather"
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: "/about" },
+	        "About"
+	      ),
+	      React.createElement(
+	        Link,
+	        { to: "/examples" },
+	        "Examples"
 	      )
 	    );
 	  }
@@ -27147,6 +27171,50 @@
 	});
 
 	module.exports = Weather;
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var About = React.createClass({
+	  displayName: "About",
+
+	  render: function functionName() {
+	    return React.createElement(
+	      "h3",
+	      null,
+	      "About our info: component"
+	    );
+	  }
+	});
+
+	module.exports = About;
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Examples = React.createClass({
+	  displayName: "Examples",
+
+	  render: function functionName() {
+	    return React.createElement(
+	      "h3",
+	      null,
+	      "Examples component"
+	    );
+	  }
+	});
+
+	module.exports = Examples;
 
 /***/ }
 /******/ ]);
